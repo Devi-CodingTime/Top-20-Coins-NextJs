@@ -3,14 +3,18 @@ import CoinCard from "./CoinCard";
 
 function CoinDisplay({ coin }) {
   const [coins, setCoins] = useState([]);
-
+  useEffect(()=>{
+    setCoins(coin);
+  },[]);
   return (
     <div className="home">
       <h1>Top 20 Cryptos</h1>
       <div className="coins-container">
-        {coins.map((coin) => (
-          <CoinCard />
-        ))}
+        {coins.length>0 && coins.map((coin) => {
+          
+          return(<CoinCard coin={coin}/>)
+        }
+        )}
       </div>
     </div>
   );
