@@ -5,13 +5,13 @@ function CoinDetail() {
   const [coin, setCoin] = useState([]);
   const[loader, setLoader] = useState(true);
   const router = useRouter();
-  const id = router.query["id"];
-
-  console.log("inside details page",id);
+  const {coin_id} = router.query;
+//  console.log("router.query ,",router.query);
+  console.log("inside details page",coin_id);
 
   async function getCoinDetails()
   {
-    const data = await fetch("https://api.coinlore.net/api/ticker/?id=80");
+    const data = await fetch(`https://api.coinlore.net/api/ticker/?id=${coin_id}`);
     const res = await data.json();
     setCoin(res[0]);
   }
