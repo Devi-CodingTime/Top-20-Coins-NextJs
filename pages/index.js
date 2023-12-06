@@ -1,15 +1,16 @@
 import CoinDisplay from "../components/CoinDisplay";
 import React, { useState, useEffect } from "react";
 export default function Home() {
+  const [coins, setCoins] = useState([]);
   async function getcoins(){
-    const [coins, setCoins] = useState([]);
+    
     let data = await fetch("https://api.coinlore.net/api/tickers/");
     let res = await data.json();
-    setCoins(res);
-    console.log(res);
+    setCoins(res.data);
+    console.log(res.data);
   }
   useEffect(()=>{
     getcoins();
   },[]);
-  return <CoinDisplay coins/>;
+  return <CoinDisplay coin={coins}/>;
 }
