@@ -7,7 +7,6 @@ export default function Home() {
     let data = await fetch("https://api.coinlore.net/api/tickers/");
     let res = await data.json();
     setCoins(res.data);
-    console.log(res.data);
   }
   useEffect(()=>{
     getcoins();

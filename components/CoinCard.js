@@ -3,7 +3,6 @@ import Link from "next/link";
 
 function CoinCard(props) {
   const data = props.coin;
-  console.log("inside coin card ",data);
   return (
     <div className="coin-card">
       <h3 className="coin-name">{data.name}</h3>
